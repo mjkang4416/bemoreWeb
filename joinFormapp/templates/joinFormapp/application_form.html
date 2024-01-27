@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+<!-- application_form.html 
+{% load static %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">제출</button>
+</form>
+-->
+
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_join.css' %}">
+    <!--js-->
+
+    <!--지원서 작성-->
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="container">
+        <form action="{% url 'joinFormapp:show_joinForm' %}" method="POST">
+            {% csrf_token %}
+            <div class="formbox">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="phone_number">전화번호</label>
+            <input type="tel" id="phone" name="phone_number" required><br>
+
+            <label for="introduction">자기소개</label>
+            <textarea id="introduction" name="introduction" rows="4" required></textarea><br>
+
+            <label for="motivation">지원동기</label>
+            <textarea id="motivation" name="motivation" rows="4" required></textarea><br>
+            <label for="activity_attachment">활동자료</label>
+            <input type="file" id="paper1" name="activity_attachment" required><br>
+
+            <label for="github_or_tistory">깃허브/티스토리</label>
+            <input type="text" id="paper2" name="github_or_tistory" required><br>
+        </div>
+        <div class="bt_box">
+            <input type="submit" id="bt_sub" value="SUBMIT">
+            <!--<button type="submit" id="bt_sub">SUBMIT</button>-->
+        </div>
+        </form>
+    </div> 
+
+{% endblock %}

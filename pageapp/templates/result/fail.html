@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/result.css'%}">
+    <!--js-->
+
+    <!--불합격 화면-->
+    <section class="result">
+        <div id="line"></div>
+        <h1>다음에 만나요</h1>
+        <h3>BEMORE 0기에</h3>
+        <h2 style="display: inline;">불합격</h2><h3 style="display: inline;">하셨습니다</h3>
+        <div id="line"></div>
+    </section>
+    
+{% endblock %}

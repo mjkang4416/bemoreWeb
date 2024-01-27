@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_inquiry.css'%}">
+    <!--js-->
+    
+    <!-- 합격자 조회 -->
+    <div class="container">
+        <form action="{% url 'pageapp:login' %}" method="POST">
+            {% csrf_token %}
+            <div class="formbox">
+                <label for="name">이름</label><input type='text' id="name" name='username' required><br/>
+                <label for="phone">전화번호</label><input type='text' id="phone" name='usernum' required><br/>
+            </div>
+            <div class="bt_box">
+                <button type="submit" id="bt_sub">조회</button>
+            </div>
+       </form>
+    </div>
+
+{% endblock %}
+
