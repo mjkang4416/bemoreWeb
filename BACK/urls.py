@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import pageapp
+
+
+
+
 from mypage import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -25,7 +30,12 @@ urlpatterns = [
     path('', include('joinFormapp.urls')),
     #pageapp 의 urls 추가
     path('', include('pageapp.urls')),
+
+    #account 의 urls 추가 
+    path('accounts/', include('accounts.urls')),
+
     #mypage의 urls 추가
     path('', include('mypage.urls')),
+
 ]
 
