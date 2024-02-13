@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pageapp',
     'peopleApp',
     'accounts',
+    'mypage',
 ]
 
 MIDDLEWARE = [
