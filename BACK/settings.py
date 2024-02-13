@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'joinFormapp',
     'pageapp',
+
     'accounts',
+
+    'mypage',
+
 ]
 
 MIDDLEWARE = [
