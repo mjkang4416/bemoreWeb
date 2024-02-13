@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 import pageapp
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -27,5 +28,7 @@ urlpatterns = [
     path('', include('pageapp.urls')),
     #peopleApp urls 추가
     path('', include('peopleApp.urls')),
+    #account 의 urls 추가 
+    path('accounts/', include('accounts.urls')),
 ]
 
