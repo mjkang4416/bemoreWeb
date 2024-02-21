@@ -16,23 +16,32 @@
     {% endif %}
 </head>
 <body>
-   
-    <!-- 네비바 -->
-    <div id="navbar">
-        <div class="nav_logo"><a href="{% url 'pageapp:index'%}"><h5>BEMORE+</h5></a></div>
-        <div class="mNav">
-            <div class="icon_wrap">
-                <div class="icon"></div>
-            </div>
-        </div>
-        <ul class="nav_menu">
-            <li><div><a href="{% url 'joinFormapp:show_joinForm'%}">activity</a></div></li>
-            <li><div><a id="apply" href="{% url 'pageapp:login' %}">people</a></div></li>
-            <li><div><a href="{% url 'accounts:login' %}">login</a></div></li>
-            <li><div><a href="{% url 'pageapp:act' %}">join</a></div></li>
-        </ul>
-    </div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav_logo"><a href="{% url 'pageapp:index'%}"><h5>BEMORE+</h5></a></div>
+            <div class="mNav">
+                <div class="icon_wrap">
+                    <div class="icon"></div>
+                </div>
+           </div>
+            <ul class="nav_menu">
+                <li><a href="{% url 'pageapp:act'%}">activity</a></li><!--활동 게시판-->
+                <li><a href="{% url 'pageapp:act' %}">people</a></li><!--동아리원 소개 페이지-->
+                <li class="click_login"><a href="{% url 'accounts:login' %}">login</a>
+                    <ul class="submenu">
+                        <li class="submenu1"><a href="{% url 'mypage:mypage' %}">mypage</a></li>
+                    </ul>
+                </li>
+                <li class="click_join">join
+                    <ul class="submenu">
+                        <li><a href="{% url 'pageapp:login' %}">합격자 조회</a></li>
+                        <li><a href="{% url 'joinFormapp:show_joinForm' %}">지원서 제출</a></li>
+                    </ul>
+                </li>
+            </ul>
 
+        </nav>
+    </header>
     {% block content %}
 
     {% endblock%}
@@ -40,4 +49,6 @@
         <p>ssubemore@gmail.com</p>
     </footer>
 </body>
+
+    
 </html>

@@ -2,6 +2,6 @@ from django import forms
 from .models import UserInfo
 
 class UserInfoForm(forms.ModelForm):
-    class Meat:
+    class Meta:
         model=UserInfo
-        fields=('major','github','tistory')
+        fields=('profile_photo','major','github','tistory')

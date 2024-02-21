@@ -81,10 +81,7 @@ section{
   color: inherit;
   
 }
-  /* 네비바 */
-  #navbar{
-    display: none;
-  }
+
 
 /* 블러, 네비바 애니메이션 */
 @keyframes blur {

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <!--js-->
+   
+    <!-- 마이 페이지 수정 -->
+    <h1>User Information</h1>
+    <p>Name: {{ userinfo.name }}</p>
+    <form action="{% url 'mypage:mypage_edit'%}" method="POST">
+        {% csrf_token %}
+        <p>Major: {{ userinfo.major }}</p>
+        <p>Github: <a href="{{ userinfo.github }}">{{ userinfo.github }}</a></p>
+        <p>Tistory: <a href="{{ userinfo.tistory }}">{{ userinfo.tistory }}</a></p>
+    </form>
+{% endblock %}
