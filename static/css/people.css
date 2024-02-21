@@ -1,0 +1,40 @@
+.containe{
+  display: flex;
+  flex-direction: column;
+}
+
+.person {
+  display: flex;
+  width: 700px;
+  align-items: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 40px;
+  background-color: #1D4765;
+}
+
+.person:nth-child(odd) {
+  margin-right: auto;
+}
+
+.person:nth-child(even) {
+  margin-left: 400px;
+}
+
+.person img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+.person h2 {
+  color: white;
+  margin-left: 20px;
+}
+
+.person a {
+  color: rgb(244, 244, 255);
+  margin-left: 300px;
+}
+
