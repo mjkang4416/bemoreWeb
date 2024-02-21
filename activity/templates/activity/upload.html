@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/activity_upload.css' %}">
+<div id="Container">
+    <form action="{% url 'activity:upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>activity</h1>
+        <div id="title" class="input">{{form.title}}</div>
+        <div id="description" class="input">{{form.description}}</div>
+        <div id="addZone" class="input">
+            <label for="{{imgform.activityImage.id_for_label}}" style="cursor: pointer;">사진선택</label>
+            <input type="file" name="{{imgform.activityImage.name}}" id="{{imgform.activityImage.id_for_label}}" multiple required style="display: none;">
+            
+        </div>
+        <input type="submit" value="제출">
+
+    </form>
+
+</div>
+{% endblock %}
