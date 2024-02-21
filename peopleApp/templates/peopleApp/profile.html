@@ -2,11 +2,37 @@
 {% load static %}
 {% block content %}
     <!--css-->
-    <link rel="stylesheet" href="{% static 'css/people.css'%}">
+    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
     <!--js-->
     <script src="{% static 'js/showProfile.js' %}"></script>
 
     <!--people  프로필 화면-->
-    <h1>프로필 화면</h1>
+
+    <div class="containe">
+        <div class="outerBox">
+            <div class="innerBox">
+                <div class="profile">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <h2>{{ profile.id }}</h2> <!--백 할 때 이름을 이걸로 바꾸기..-->
+                    <h2>이름</h2>
+                    <h2>전공</h2>
+                    <h2>깃허브</h2>
+                </div>
+                <div class="post">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                    <img src="{% static 'img/pic1.jpg' %}" alt="Profile Picture">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 사용자의 다른 프로필 정보는 추후에 추가 -->
     
 {% endblock %}

@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
     <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
     <link rel="stylesheet" href="{% static 'css/people.css'%}">
     <!--js-->
     <script src="{% static 'js/showProfile.js' %}"></script>
@@ -32,7 +33,7 @@
             <h2>이름4</h2>
             <a href="https://github.com/github2">깃허브링크4</a>
         </div>
-        <div id="personList" class="person"></div>
+        <div id="personList"></div>
     </div>
     
 {% endblock %}

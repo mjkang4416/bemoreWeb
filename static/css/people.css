@@ -25,6 +25,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  pointer-events: auto;
 }
 
 .person h2 {
@@ -36,3 +37,4 @@
   color: rgb(244, 244, 255);
   margin-left: 300px;
 }
+

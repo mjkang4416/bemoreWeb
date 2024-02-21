@@ -1,24 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
     var profiles = [
-        { name: "John Doe", profileImage: "john.jpg", githubLink: "https://github.com/johndoe", profilePage: "profile1.html" },
-        { name: "Jane Smith", profileImage: "jane.jpg", githubLink: "https://github.com/janesmith", profilePage: "profile2.html" },
+        { name: "John Doe", profileImage: "{% static 'img/pic1.jpg' %}", githubLink: "https://github.com/johndoe", profilePage: "profile1.html" },
+        { name: "Jane Smith", profileImage: "{% static 'img/pic1.jpg' %}", githubLink: "https://github.com/janesmith", profilePage: "profile2.html" },
         // 다른 프로필 데이터들...
     ];
 
-    var profileContent = document.getElementById("profileContent");
+    // 이미지 요소들에 클릭 이벤트를 추가합니다.
+    var images = document.querySelectorAll(".person img");
+    images.forEach(function(image, index) {
+        // 각 이미지를 클릭했을 때 프로필 페이지로 이동하는 이벤트를 추가합니다.
+        image.addEventListener("click", function() {
+            // 해당 프로필의 프로필 페이지 URL로 이동합니다.
+            window.location.href = '/profile/' + profiles[index].username + '/';
 
-    profiles.forEach(function(profile) {
-        var imageElement = document.createElement("img");
-        imageElement.src = profile.profileImage;
-        imageElement.alt = "Profile Picture";
-
-        // 이미지를 클릭했을 때 프로필 페이지로 이동하는 이벤트를 추가합니다.
-        imageElement.addEventListener("click", function() {
-            window.location.href = "profile.html"; // 프로필 페이지로 이동
         });
-
-        // 프로필 이미지를 프로필 컨텐츠 영역에 추가합니다.
-        profileContent.appendChild(imageElement);
     });
 
 });

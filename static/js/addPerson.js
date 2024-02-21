@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     // 프로필 데이터. (임시로 배열 사용. 추후에 어드민에서 데이터 받아오는 걸로 바꿔야 함)
     var profiles = [
-        { name: "John Doe", profileImage: "john.jpg", githubLink: "https://github.com/johndoe" },
-        { name: "Jane Smith", profileImage: "jane.jpg", githubLink: "https://github.com/janesmith" },
-        { name: "Jane Smith", profileImage: "jane.jpg", githubLink: "https://github.com/janesmith" },
+        { name: "John Doe", profileImage: "{% static 'img/pic1.jpg' %}", githubLink: "https://github.com/johndoe" },
+        { name: "Jane Smith", profileImage: "{% static 'img/pic1.jpg' %}", githubLink: "https://github.com/janesmith" },
+        { name: "Jane Smith", profileImage: "{% static 'img/pic1.jpg' %}", githubLink: "https://github.com/janesmith" },
     ];
 
     var personListContainer = document.getElementById("personList");
