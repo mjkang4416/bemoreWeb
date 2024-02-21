@@ -32,5 +32,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     #mypage의 urls 추가
     path('', include('mypage.urls')),
+    path('activity/', include('activity.urls')),
 ]
 
