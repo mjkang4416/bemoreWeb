@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'peopleApp',
     'accounts',
     'mypage',
+
 ]
 
 MIDDLEWARE = [
