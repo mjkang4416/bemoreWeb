@@ -1,7 +1,7 @@
 from django import forms
-from .models import UserInfo
+from .models import Profile
 
-class UserInfoForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
-        model=UserInfo
+        model=Profile
         fields=('profile_photo','major','github','tistory')

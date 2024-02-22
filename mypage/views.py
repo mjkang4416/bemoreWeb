@@ -1,26 +1,28 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import UserInfo
-from .forms import UserInfoForm
-
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required #로그인한 사용자만 사용 가능
+from .models import Profile
+# from . import ProfileForm
 
 # mypage 화면
 @login_required
-def mypage(request):
-    userinfo = UserInfo.objects.get_or_create(user=request.user)
-    return render(request, 'mypage.html',{'userinfo': userinfo})
+def mypage(request,username):
+    username = request.user.username
+    profile = get_object_or_404(Profile, user__username=username)
+    return render(request, 'mypage.html', {'profile':profile})
 
 # 개인 정보 수정하기
 @login_required
-def mypage_edit(request):
-    userinfo = UserInfo.objects.get_or_create(user=request.user)
+def mypage_edit(request, username):
+    username = request.user.username
+    profile = get_object_or_404(Profile, user__username=username)
     if request.method == 'POST':
-        userinfo.major = request.POST['title']
-        userinfo.github = request.POST['github']
-        userinfo.tistory = request.POST['tistory']
-        userinfo.save()
-        return redirect('mypage:mypage')
+        if request.POST.get('profile_photo', True):
+            profile.profile_photo = request.FILES.get('profile_photo')
+        profile.major = request.POST.get('major')
+        profile.github = request.POST.get('github')
+        profile.tistory = request.POST.get('tistory')
+        profile.save()
+        return redirect('mypage:mypage', username=username)
     else:
-        return render(request, 'mypage_edit.html',{'userinfo': userinfo})
+        return render(request, 'mypage_edit.html', {'profile':profile})
             
-# 프로필 사진 업로드

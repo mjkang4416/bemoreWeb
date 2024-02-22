@@ -6,22 +6,24 @@
     <!--js-->
    
     <!-- 마이 페이지 메인 -->
+    <h1>mypage</h1>
     <!-- 프로필 사진 -->
-    <div><img src={% if person.profile.image %}"{{ person.profile.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} width="150rem" style="border-radius: 50%;" alt=""></div>
+    <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} width="150rem" height="150rem" style="border-radius: 50%;" alt=""></div>
     <!-- 유저 정보 -->
     <div>
-        <h2>{{ person.username }}
-            {% if person.username == user.username %}
-            <a href="{% url 'accounts:profile' %}"><button class="btn btn-success">프로필 편집</button></a>
-            {% endif %}
-            <!-- 다음 포스트에 프로필 편집 페이지를 구성할 것이다. -->
-        </h2>
-        <p>{{ person.profile.nickname }}</p>
-        <p>{{ person.profile.description }}</p>
+      <h2>
+        {% if request.user.is_authenticated %}
+        {{ request.user.first_name }}{{ request.user.last_name }}<br>
+        {% endif %}
+        전공: {{ profile.major }}<br>
+        깃허브: <a href="{{ profile.github }}">{{ profile.github }}</a><br>
+        티스토리: <a href="{{ profile.tistory }}">{{ profile.tistory }}</a><br>
+      </h2>
     </div>
 
     <!-- 수정하기 버튼 -->
-    <a href="{% url 'mypage:mypage_edit' %}">Edit</a>
+    <a href="{% url 'mypage:mypage_edit' username=request.user.username %}"><button class="btn btn-success">수정하기</button></a>
 
     <!-- 로그아웃 버튼 버튼 -->
+    <button class="btn btn-success">로그아웃</button>
 {% endblock %}
