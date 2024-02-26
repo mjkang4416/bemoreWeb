@@ -2,15 +2,15 @@
 {% load static %}
 {% block content %}
     <!--css-->
-    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <link rel="stylesheet" href="{% static 'css/mypage.css'%}">
     <!--js-->
     
     <!-- 마이 페이지 메인 -->
-    <h1>mypage</h1>
+    <div id="page-name"><h1>my page</h1></div>
     <!-- 프로필 사진 -->
-    <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} width="150rem" height="150rem" style="border-radius: 50%;" alt=""></div>
+    <div ><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} id="profile-photo" alt=""></div>
     <!-- 유저 정보 -->
-    <div>
+    <div id="userInfo">
       <h2>
         {% if request.user.is_authenticated %}
         {{ request.user.first_name }}{{ request.user.last_name }}<br>
@@ -22,9 +22,9 @@
     </div>
 
     <!-- 수정하기 버튼 -->
-    <a href="{% url 'mypage:mypage_edit' username=request.user.username %}"><button class="btn btn-success">수정하기</button></a>
+    <button class="btn-edit" onclick="location.href='{% url 'mypage:mypage_edit' username=request.user.username %}'">Edit</button>
 
     <!-- 로그아웃 버튼 버튼 -->
-    <button class="btn btn-success" onclick="location.href='{% url 'accounts:login' %}'">로그아웃</button>
+    <button class="btn-logout" onclick="location.href='{% url 'accounts:login' %}'">Logout</button>
     
 {% endblock %}

@@ -17,6 +17,7 @@
     {% endif %}
 </head>
 <body>
+    <div id='wrapper'>
     <header class="header">
         <nav class="navbar">
             <div class="nav_logo"><a href="{% url 'pageapp:index'%}"><h5>BEMORE+</h5></a></div>
@@ -52,8 +53,9 @@
     {% block content %}
 
     {% endblock%}
-    <footer id="email">
-        <p>ssubemore@gmail.com</p>
+</div>
+    <footer id="copyright">
+        <p>© 2024. BEMORE all rights reserved</p>
     </footer>
 </body>
 
