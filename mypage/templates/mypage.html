@@ -4,7 +4,7 @@
     <!--css-->
     <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
     <!--js-->
-   
+    
     <!-- 마이 페이지 메인 -->
     <h1>mypage</h1>
     <!-- 프로필 사진 -->
@@ -25,5 +25,6 @@
     <a href="{% url 'mypage:mypage_edit' username=request.user.username %}"><button class="btn btn-success">수정하기</button></a>
 
     <!-- 로그아웃 버튼 버튼 -->
-    <button class="btn btn-success">로그아웃</button>
+    <button class="btn btn-success" onclick="location.href='{% url 'accounts:login' %}'">로그아웃</button>
+    
 {% endblock %}
