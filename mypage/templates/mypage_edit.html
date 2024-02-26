@@ -1,21 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <!--css-->
-    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <!--css-->    
+    <link rel="stylesheet" href="{% static 'css/mypage.css'%}">
     <!--js-->
-   
     <!-- 마이 페이지 수정 -->
-    <h1>mypage</h1>
-    <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} width="150rem" height="150rem" style="border-radius: 50%;" alt=""></div>
-    <h2>{{ request.user.first_name }}{{ request.user.last_name }}<br>
-        
+    <div id="page-name"><h1>my page</h1></div>
     <form action="{% url 'mypage:mypage_edit' username=request.user.username %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        이미지 선택: <input type="file" name="profile_photo" value="{{ profile.profile_photo }}"><br>
-        전공: <input type="text" name="major" value="{{profile.major}}"><br>
-        깃허브: <input type="text" name="github" value="{{profile.github}}"><br>
-        티스토리: <input type="text" name="tistory" value="{{profile.tistory}}"><br>
-        <input type="submit" value="저장">
+        <!-- 프로필 사진 -->
+        <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} id="profile-photo" alt=""></div>
+        <input type="file" name="profile_photo" value="{{ profile.profile_photo }}" id="select-photo">
+        <!-- 유저 정보 -->
+        <div id="userInfo">
+            <h2> 
+                {% if request.user.is_authenticated %}
+                {{ request.user.first_name }}{{ request.user.last_name }}<br>
+                {% endif %}
+                전공: <input type="text" name="major" value="{{profile.major}}"><br>
+                깃허브: <input type="text" name="github" value="{{profile.github}}"><br>
+                티스토리: <input type="text" name="tistory" value="{{profile.tistory}}"><br>
+            </h2>
+        </div>
+        <input type="submit" value="save" class="btn-edit">
     </form>
 {% endblock %}
