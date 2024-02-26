@@ -11,12 +11,9 @@
                    value="{{ form.username.value|default_if_none:'' }}">
         </div>
         <div class="form-group">
-            <label for="password">비밀번호</label><input type="text" class="form-control" name="password" id="password"
+            <label for="password">비밀번호</label><input type="password" class="form-control" name="password" id="password"
                    value="{{ form.password.value|default_if_none:'' }}"> 
         </div>
-
-        {% comment %} type = password 로 지정시 템플릿이 이상해져서 일단 비번 보이게 둠
-                      로그인 성공시 메인 페이지로 리다이렉트, -> mypage로 수정예정 {% endcomment %}
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
 </div>
