@@ -36,8 +36,8 @@ a{
   text-align: center;
   font-size: 20px;
 }
-.nav_menu #ect{
-  padding: 0 40px 0 40px;
+.nav_menu #etc{
+  padding: 0 40px;
 }
 .join-btn{
   padding: 0 40px;
@@ -80,8 +80,6 @@ a{
   .nav_menu li{
     text-align: center;
     padding-bottom:10px;
-  }
-  #ect, .join-btn{
   }
   #submenu{
     display: none;
