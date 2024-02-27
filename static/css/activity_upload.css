@@ -1,20 +1,130 @@
+
+#Container{
+    margin: 0 auto;
+    padding-left: 15%;
+    padding-top: 30px;
+
+}
 .input{
     background-color: white;
-    border-radius: 5px;
-    
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 30px;
 }
-label,
-input,
-textarea {
-    display: block;
-    margin-bottom: 10px;
-    color: #999998;
+#title{
+    height: 50px;
+}
+#description{
+    height: 50px;
+}
+#addZone{
+    height: 250px;
+    padding: 30px;
+}
+#addPhoto{
+  width: 200px;
+  height: 30px;
+  background-color: #133A56;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  line-height: 30px;
+  margin: 30px;
+
 }
 
-input[type="text"],
-input[type="tel"],
-textarea {
-    background-color: transparent;
+
+#myModal {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    border:1px solid #888;
+    background-color: white;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    color: #999998;
+    z-index: 9999; /* 다른 요소 위에 나타나도록 설정 */
+  }
+
+  .profile-item{
+    color: black;
+  }
+  .choose{
+    width: 200px;
+    height: 30px;
+    background-color: #133A56;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;
+    margin: 30px;
+  }
+  #choicePeople{
+    width: 200px;
+    height: 30px;
+    background-color: #133A56;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;
+    margin: 30px;
+  }
+  #closeModal{
+    width: 60px;
+    height: 30px;
+    background-color: #133A56;
+    color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    line-height: 30px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+ .selected-user{
+    color: black;
+    display: inline;
+    
+  }
+  #selectedUsers{
+    display: inline;
+  }
+  #selectedProfiles{
+    display: inline;
+  }
+
+  .profile-image {
+    width: 30px;
+    height: 30px; /* 원하는 세로 크기로 조정 */
+    object-fit: cover;
+    border-radius: 100%; /* 이미지의 가로세로 비율을 유지한 채로 잘라내기 */
+  }
+ #user_say_{
+background-color: transparent;
     border: none;
+    border-bottom: 2px solid white;
+    border-image: linear-gradient(to right, skyblue, transparent);
+    border-image-slice: 1;
     width: 780px;
-}
+  }
+  
+
+

@@ -128,7 +128,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join('static'),)
 
 #사용자가 업로드하는 파일 저장
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
 # Default primary key field type

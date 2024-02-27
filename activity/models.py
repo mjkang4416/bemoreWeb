@@ -1,5 +1,6 @@
 from django.db import models
-from django import forms
+
+
 
 #사용자(로그인 파트에서_모델 끌어오기)
 
@@ -14,4 +15,8 @@ class ActivityImage(models.Model):
     activity=models.ForeignKey(Activity, on_delete=models.CASCADE)
     activityImage=models.ImageField(upload_to='image/',blank=True, null=True)
 
-#이 밑에 외래키로 1:N구조 만들기
+
+class ActivityUser(models.Model):
+    activity=models.ForeignKey(Activity, on_delete=models.CASCADE)
+    user_id=models.CharField(max_length=30, null=False)
+    user_say=models.CharField(max_length=200, null=True, blank=False)

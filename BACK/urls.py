@@ -19,20 +19,23 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView
 import pageapp
 from mypage import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
     #joinFormapp의 urls를 추가했다
-    path('', include('joinFormapp.urls')),
+    path('joinFormapp/', include('joinFormapp.urls')),
     #pageapp 의 urls 추가
     path('', include('pageapp.urls')),
     #peopleApp urls 추가
-    path('', include('peopleApp.urls')),
+    path('peopleApp/', include('peopleApp.urls')),
     #account 의 urls 추가 
     path('accounts/', include('accounts.urls')),
     #mypage의 urls 추가
-    path('', include('mypage.urls')),
+    path('mypage/', include('mypage.urls')),
     path('activity/', include('activity.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
