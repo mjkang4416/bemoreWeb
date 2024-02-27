@@ -27,7 +27,7 @@
                 </div>
            </div>
             <ul class="nav_menu">
-                <li><a href="{% url 'activity:project'%}">activity</a></li><!--활동 게시판-->
+                <li><a href="{% url 'activity:show_activity'%}">activity</a></li><!--활동 게시판-->
                 <li><a href="{% url 'peopleApp:show_people' %}">people</a></li><!--동아리원 소개 페이지-->
                 <li class="click_login">
                     {% if request.user.is_authenticated %}
@@ -40,12 +40,7 @@
                     {% endif %}
                      
                 </li>
-                <li class="click_join">join
-                    <ul class="submenu">
-                        <li><a href="{% url 'pageapp:login' %}">합격자 조회</a></li>
-                        <li><a href="{% url 'joinFormapp:show_joinForm' %}">지원서 제출</a></li>
-                    </ul>
-                </li>
+                
             </ul>
 
         </nav>
