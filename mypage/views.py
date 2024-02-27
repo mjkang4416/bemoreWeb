@@ -4,14 +4,13 @@ from .models import Profile
 # from . import ProfileForm
 
 # mypage 화면
-@login_required
+@login_required(login_url='accounts:login')
 def mypage(request,username):
     username = request.user.username
     profile = get_object_or_404(Profile, user__username=username)
     return render(request, 'mypage.html', {'profile':profile})
 
 # 개인 정보 수정하기
-@login_required
 def mypage_edit(request, username):
     username = request.user.username
     profile = get_object_or_404(Profile, user__username=username)

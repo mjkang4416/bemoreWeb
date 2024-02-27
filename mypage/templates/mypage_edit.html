@@ -18,8 +18,8 @@
                 {{ request.user.first_name }}{{ request.user.last_name }}<br>
                 {% endif %}
                 전공: <input type="text" name="major" value="{{profile.major}}"><br>
-                깃허브: <input type="text" name="github" value="{{profile.github}}"><br>
-                티스토리: <input type="text" name="tistory" value="{{profile.tistory}}"><br>
+                깃허브: <input type="url" name="github" value="{{profile.github}}"><br>
+                티스토리: <input type="url" name="tistory" value="{{profile.tistory}}"><br>
             </h2>
         </div>
         <input type="submit" value="save" class="btn-edit">
