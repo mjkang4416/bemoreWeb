@@ -10,6 +10,8 @@
     border-radius: 10px;
     width: 80%;
     margin-top: 30px;
+    color: black;
+    padding: 10px 10px 10px;
 }
 #title{
     height: 50px;
@@ -18,22 +20,40 @@
     height: 50px;
 }
 #addZone{
-    height: 250px;
+    height: 350px;
     padding: 30px;
+    padding: 20px;
 }
 #addPhoto{
-  width: 200px;
+  width: 100px;
   height: 30px;
   background-color: #133A56;
   color: white;
   border-radius: 10px;
-  padding: 5px;
+  padding-left: 12px;
   line-height: 30px;
-  margin: 30px;
+  margin-top: 30px;
+  display: block;
 
 }
+#choicePeople{
+  width: 100px;
+  height: 30px;
+  background-color: #133A56;
+  color: white;
+  border-radius: 10px;
+  padding-left: 12px;
+  line-height: 30px;
+  margin-top: 30px;
+  display: block;
+}
 
+.selectedPhotoName{
+  color: #888;
+  margin-left: 10px;
+  margin-top: 10px;
 
+}
 #myModal {
     display: none;
     position: fixed;
@@ -73,16 +93,7 @@
     line-height: 30px;
     margin: 30px;
   }
-  #choicePeople{
-    width: 200px;
-    height: 30px;
-    background-color: #133A56;
-    color: white;
-    border-radius: 10px;
-    padding: 5px;
-    line-height: 30px;
-    margin: 30px;
-  }
+  
   #closeModal{
     width: 60px;
     height: 30px;
@@ -115,15 +126,29 @@
     width: 30px;
     height: 30px; /* 원하는 세로 크기로 조정 */
     object-fit: cover;
-    border-radius: 100%; /* 이미지의 가로세로 비율을 유지한 채로 잘라내기 */
+    border-radius: 100%;
+    margin-top: 25px; /* 이미지의 가로세로 비율을 유지한 채로 잘라내기 */
   }
- #user_say_{
-background-color: transparent;
+ .sayinput{
+    background-color: transparent;
     border: none;
     border-bottom: 2px solid white;
     border-image: linear-gradient(to right, skyblue, transparent);
     border-image-slice: 1;
-    width: 780px;
+    width: 80%;
+    color: black;
+    margin-left: 10px;
+  }
+  #submit{
+    width: 80px;
+    height: 30px;
+    background-color: #133A56;
+    color: white;
+    border-radius: 10px;
+    line-height: 30px;
+    margin-top: 30px;
+    display: block;
+    margin-left: 70%;
   }
   
 
