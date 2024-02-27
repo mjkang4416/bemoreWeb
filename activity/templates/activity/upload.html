@@ -1,23 +1,48 @@
 {% extends 'base.html' %}
 
-
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/activity_upload.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'js/activity_upload.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<div id="myModal" class="modal" style="display: none;">
+    <p class="choose">사람을 선택해주세요</p>
+    <span class="close" id="closeModal">완료</span>
+    <div class="modal-content">
+        
+      <ul>
+        {% for profile in profiles %}
+          <li class="profile-item" data-profile-id="{{ profile.id }}" data-profile-photo-url="{{ profile.profile_photo.url }}">
+            {{ profile.user.username }}
+            <!-- 다른 프로필 정보 표시 -->
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+</div>
 <div id="Container">
-    <form action="{% url 'activity:upload' %}" method="post" enctype="multipart/form-data">
+    <form id="activityForm" action="{% url 'activity:upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h1>activity</h1>
-        <div id="title" class="input">{{form.title}}</div>
-        <div id="description" class="input">{{form.description}}</div>
+        <input type="text" id="title" class="input" name="title">
+        <input type="text" id="description" class="input" name="description">
         <div id="addZone" class="input">
-            <label for="{{imgform.activityImage.id_for_label}}" style="cursor: pointer;">사진선택</label>
-            <input type="file" name="{{imgform.activityImage.name}}" id="{{imgform.activityImage.id_for_label}}" multiple required style="display: none;">
-            
+            <label id="addPhoto" for="activityImage" style="cursor: pointer;">사진 추가</label>
+            <input type="file" name="activityImage" id="activityImage" multiple required style="display: none;">
+            <label id="choicePeople" style="cursor: pointer;">사람 추가</label>
+            <div id="profileSet">
+                <div><p id="selectedProfiles"></div>
+                <div id="selectedUsers"><p></p></div>
+                <div id="user_say" class="userinput"></div>
+                <input type="hidden" name="selected_users" id="selectedUsersInput">
+            </div>
         </div>
+        
         <input type="submit" value="제출">
-
     </form>
-
 </div>
+
 {% endblock %}
