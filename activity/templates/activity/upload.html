@@ -3,9 +3,6 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/activity_upload.css' %}">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="{% static 'js/activity_upload.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
 <div id="myModal" class="modal" style="display: none;">
@@ -31,18 +28,18 @@
         <input type="text" id="description" class="input" name="description">
         <div id="addZone" class="input">
             <label id="addPhoto" for="activityImage" style="cursor: pointer;">사진 추가</label>
+            <div id="selectedPhotoName"></div>
             <input type="file" name="activityImage" id="activityImage" multiple required style="display: none;">
             <label id="choicePeople" style="cursor: pointer;">사람 추가</label>
-            <div id="profileSet">
-                <div><p id="selectedProfiles"></div>
-                <div id="selectedUsers"><p></p></div>
-                <div id="user_say" class="userinput"></div>
-                <input type="hidden" name="selected_users" id="selectedUsersInput">
-            </div>
+            <div id="selectedUsers"></div>
+            <input type="hidden" name="selected_users" id="selectedUsersInput">
+            <input type="hidden" name="selected_users_say" id="selectedUserSayInput">
         </div>
         
-        <input type="submit" value="제출">
+        <input type="submit" value="제출" id="submit">
     </form>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'js/activity_upload.js' %}"></script>
 
 {% endblock %}
