@@ -19,4 +19,8 @@ class ActivityImage(models.Model):
 class ActivityUser(models.Model):
     activity=models.ForeignKey(Activity, on_delete=models.CASCADE)
     user_id=models.CharField(max_length=30, null=False)
+    
+class ActivityUserSay(models.Model):
+    activity=models.ForeignKey(Activity, on_delete=models.CASCADE)
+    user_id=models.ForeignKey(ActivityUser, on_delete=models.CASCADE)
     user_say=models.CharField(max_length=200, null=True, blank=False)
