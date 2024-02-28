@@ -1,16 +1,21 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
 
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% comment %} css 적용{% endcomment %}
+<link rel="stylesheet" href="{% static 'css/login.css'%}">
+{% comment %} js 적용 {% endcomment %}
+<script src="{% static 'js/back_button.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-{% comment %} <div id="page-name"><h1>login</h1></div> {% endcomment %}
+<div class="page-lt"><button type="button" class="back_bt" onclick="backBt();">&lt;</button></div> 
+<div id="page-name"><h1>login</h1></div> 
 <div class="container my-3">
     <form method="post" class="post-form" action="{% url 'accounts:login' %}">
         {% csrf_token %}
         {% include "form_errors.html" %} 
+        <div class="login-form">
         <div class="form-group">
             <label for="username">사용자ID</label>
             <input type="text" class="form-control" name="username" id="username"
@@ -22,6 +27,7 @@
                    value="{{ form.password.value|default_if_none:'' }}"> 
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
+        </div>
     </div>
     </form>
 </div>

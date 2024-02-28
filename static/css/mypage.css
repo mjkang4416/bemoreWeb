@@ -5,6 +5,7 @@
     border-radius: 50%;
     width: 200px;
     height:200px;
+
 }
 #userInfo{
     position: absolute;
@@ -15,6 +16,7 @@
     align-items: center;
     text-align: justify;
     color: white;
+    
 }
 .btn-edit{
     position: absolute;
