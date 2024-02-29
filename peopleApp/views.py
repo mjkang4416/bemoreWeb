@@ -1,10 +1,8 @@
-from django.shortcuts import render
-
-# Create your views here.
-
+from django.shortcuts import render, redirect
+from mypage.models import Profile
 def people(request):
-    # HTML 파일을 렌더링하여 반환
-    return render(request, 'peopleApp/people.html')
+    context={'items':Profile.objects.all()}
+    return render(request, 'peopleApp/people.html',context)
 
 def profile(request):
     return render(request, 'peopleApp/profile.html')
