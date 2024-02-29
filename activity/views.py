@@ -1,15 +1,29 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Activity, ActivityImage, ActivityUser, ActivityUserSay
 from mypage.models import Profile
 
 # Create your views here.
 
+from django.shortcuts import render
+from .models import Activity, ActivityImage, ActivityUser, ActivityUserSay
+
 def show_activity(request):
-    if request.method == 'POST':
-        # POST 요청 처리 코드 추가
-        return render(request, 'activity/activity.html')
-    else:
-        return render(request, 'activity/activity.html')
+    # Activity 모델에 있는 모든 활동 글들을 가져옴
+    activities = Activity.objects.all()
+
+    # 함께 작성된 것들끼리 묶어서 세트로 표현
+    activity_sets = []
+    for activity in activities:
+        activity_set = {
+            'activity': activity,
+            'images': ActivityImage.objects.filter(activity=activity),
+            'users': ActivityUser.objects.filter(activity=activity),
+            'user_says': ActivityUserSay.objects.filter(activity=activity)
+        }
+        activity_sets.append(activity_set)
+
+    return render(request, 'activity/activity.html', {'activity_sets': activity_sets})
+
 
 def upload(request):
     profiles = Profile.objects.all()
