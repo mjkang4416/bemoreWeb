@@ -7,24 +7,31 @@
     
     <!-- 마이 페이지 메인 -->
     <div id="page-name"><h1>my page</h1></div>
-    <!-- 프로필 사진 -->
-    <div ><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} id="profile-photo" alt=""></div>
-    <!-- 유저 정보 -->
-    <div id="userInfo">
-      <h2>
+    <div class="container-info">
+      <div class="info">
+      <!-- 프로필 사진 -->
+      <div id="photo">
+        <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} class="no-edit" id="profile-photo" alt=""></div>
+        <div></div>
+      </div>
+      <!-- 유저 정보 -->
+      <div id="userInfo">
+        <h2>
         {% if request.user.is_authenticated %}
-        {{ request.user.first_name }}{{ request.user.last_name }}<br>
+          <div>{{ request.user.first_name }}{{ request.user.last_name }}</div>
         {% endif %}
-        전공: {{ profile.major }}<br>
-        깃허브: <a href="{{ profile.github }}">{{ profile.github }}</a><br>
-        티스토리: <a href="{{ profile.tistory }}">{{ profile.tistory }}</a><br>
-      </h2>
+        <div>전공: {{ profile.major }}</div>
+        <div>깃허브: <a href="{{ profile.github }}">{{ profile.github }}</a></div>
+        <div>티스토리: <a href="{{ profile.tistory }}">{{ profile.tistory }}</a></div>
+        
+        </h2>
+        <!-- 수정하기 버튼 -->
+        <div id="edit"><button class="btn-edit" onclick="location.href='{% url 'mypage:mypage_edit' username=request.user.username %}'">Edit</button></div>
+      </div>
+      </div>
+      
+
+      <!-- 로그아웃 버튼 버튼 -->
+      <div id="logout"><button class="btn-logout" onclick="location.href='{% url 'accounts:login' %}'">Logout</button></div>
     </div>
-
-    <!-- 수정하기 버튼 -->
-    <button class="btn-edit" onclick="location.href='{% url 'mypage:mypage_edit' username=request.user.username %}'">Edit</button>
-
-    <!-- 로그아웃 버튼 버튼 -->
-    <button class="btn-logout" onclick="location.href='{% url 'accounts:login' %}'">Logout</button>
-    
 {% endblock %}
