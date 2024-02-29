@@ -1,8 +1,40 @@
 {% extends 'base.html' %}
-
-
 {% load static %}
 {% block content %}
-<div id="page-name"><h1>activity</h1></div>
+<link rel="stylesheet" href="{% static 'css/activity.css' %}">
+<div class="container">
+    <h1 class="top">activity</h1>
     
+    {% for activity_set in activity_sets %}
+        <div class="activity-set">
+
+            <div class="activity-images">
+                <h2 class="title">{{ activity_set.activity.title }}</h2>
+                <div class="gallery">
+                {% for image in activity_set.images %}
+                    <img src="{{ image.activityImage.url }}" alt="Activity Image" class="inImage">
+                {% endfor %}
+                </div>
+            </div>
+            <div class="right">
+                <h3>{{ activity_set.activity.description }}</h3>
+                <div class="activity-users">
+                    
+                    {% for user in activity_set.users %}
+                        <p>{{ user.user_id }}</p>
+                    {% endfor %}
+                </div>
+
+                <div class="activity-user-says">
+                    
+                    {% for say in activity_set.user_says %}
+                        <p>{{ say.user_say }}</p>
+                    {% endfor %}
+            </div>
+            </div>
+            
+        </div>
+        
+    {% endfor %}
+</div>
 {% endblock %}
