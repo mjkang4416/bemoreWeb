@@ -15,7 +15,7 @@
         <div></div>
       </div>
       <!-- 유저 정보 -->
-      <div id="userInfo">
+      <div id="info">
         <h2>
         {% if request.user.is_authenticated %}
           <div>{{ request.user.first_name }}{{ request.user.last_name }}</div>
