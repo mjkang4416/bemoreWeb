@@ -35,7 +35,6 @@ section{
   }
   .ko {
     opacity: 0;
-    transform: translatey(-100%) translateX(5%);
     transition: opacity 3s ease-in-out;
   }
   .eng h1 {
