@@ -43,7 +43,7 @@ def login(request):
         return render(request,'result/pass.html') # 합격
     
     else:
-        not_date = current_date.month != 1 or current_date.day != 6
+        not_date = current_date.month != 3 or current_date.day != 1
         if not_date:
             return render(request, 'main/already.html',{'not_date':not_date})
         else:
