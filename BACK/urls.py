@@ -28,6 +28,7 @@ urlpatterns = [
     #pageapp 의 urls 추가
     path('', include('pageapp.urls')),
     #peopleApp urls 추가
+    path('peopleApp/', include('peopleApp.urls')),
     #account 의 urls 추가 
     path('accounts/', include('accounts.urls')),
     #mypage의 urls 추가

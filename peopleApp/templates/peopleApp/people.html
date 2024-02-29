@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <link rel="stylesheet" href="{% static 'css/people.css'%}">
+    <!--js-->
+    <script src="{% static 'js/showProfile.js' %}"></script>
+    <script src="{% static 'js/addPerson.js' %}"></script>
+
+    <!--people �붾㈃-->
+    <h1 style="text-align: left;">people</h1>
+
+    <div class="containe">
+        <!--誘몃━ 異붽��섏뼱 �덈뒗 踰꾩쟾-->
+        <div class="person">
+          <img src="{% static 'img/pic1.jpg' %}">
+          <h2>이름1</h2>
+          <a href="https://github.com/github1">깃허브링크1</a>
+        </div>
+        <div class="person">
+            <img src="{% static 'img/pic1.jpg' %}">
+          <h2>이름2</h2>
+          <a href="https://github.com/github2">깃허브링크2</a>
+        </div>
+        <div class="person">
+            <img src="{% static 'img/pic1.jpg' %}">
+            <h2>이름3</h2>
+            <a href="https://github.com/github2">깃허브링크3</a>
+        </div>
+        <div class="person">
+            <img src="{% static 'img/pic1.jpg' %}">
+            <h2>이름4</h2>
+            <a href="https://github.com/github2">깃허브링크4</a>
+        </div>
+        <div id="personList"></div>
+    </div>
+    
+{% endblock %}
