@@ -32,6 +32,7 @@
       
 
       <!-- 로그아웃 버튼 버튼 -->
-      <div id="logout"><button class="btn-logout" onclick="location.href='{% url 'accounts:login' %}'">Logout</button></div>
-    </div>
+      {%if user.is_authenticated%}
+      <div id="logout"><button class="btn-logout" onclick="location.href='{% url 'accounts:logout' %}'" type="submit">Logout</button></div>
+      {%endif%}
 {% endblock %}
