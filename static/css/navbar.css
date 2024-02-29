@@ -73,20 +73,24 @@ a{
   .nav_menu{
     flex-direction: column;
     align-items: center;
+    text-align: center;
     width: 100%;
     display: none;
-    margin:0;    
+    margin: 10px 0 0 0; 
+    padding:0;
   }
-  .nav_menu li{
-    text-align: center;
-    padding-bottom:10px;
+  .nav_menu #etc {
+    padding:10px 0;
+  }
+  .nav_menu .join-btn{
+    padding:10px 0;
   }
   #submenu{
     display: none;
     padding: 0;
   }
   #submenu li{
-    padding: 30px 0 0 0;
+    padding: 15px 0;
   }
 
   .toggle-btn{

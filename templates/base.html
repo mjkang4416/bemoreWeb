@@ -29,12 +29,13 @@
                 {% comment %} <li id="etc"><a href="{% url 'peopleApp:show_people' %}">people</a></li><!--동아리원 소개 페이지--> {% endcomment %}
                 <li id="etc" class="menu1">
                     {%if user.is_authenticated %}
-                         <a href="{% url 'accounts:logout' %}" class="login-btn">logout</a>
+                         <a class="login-btn">login</a>
+                         <ul id="submenu" class="sub1">
+                            <li><a href="{% url 'mypage:mypage' username=request.user.username %}">mypage</a></li>
+                        </ul>
                     {% else %}
                         <a href="{% url 'accounts:login' %}" class="login-btn">login</a>
                     {% endif %}
-                    
-                     
                 </li>
                 <li class="menu2">
                     <div class="join-btn">join</div>
