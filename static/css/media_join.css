@@ -58,7 +58,6 @@ textarea:focus {
 
 @media screen and (max-width:900px){
     /*모바일용 css*/
-
     .formbox{
         display: inline-block;
         width: 100%; 
