@@ -41,10 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'joinFormapp',
     'pageapp',
-    'peopleApp',
     'accounts',
     'mypage',
-
     'activity',
 ]
 
@@ -56,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'BACK.urls'
@@ -136,5 +135,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL ="/mypage/"
+#로그인 로그아웃 시 리다이렉트 
+LOGIN_REDIRECT_URL ="/mypage/mypage"
 LOGOUT_REDIRECT_URL= "/"
