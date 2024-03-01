@@ -2,8 +2,18 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/activity.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <div class="container">
-    <h1 class="top">activity</h1>
+    <div id="tops">
+        <a href="{% url 'pageapp:index'%}" class="back_bt">
+            <img src="{% static 'img/back_bt.png' %}" alt="Your Image" id="plus">
+        </a>
+        <p class="top">activity</p>
+        <a href="{% url 'activity:upload' %}" class="plus_cont">
+            <img src="{% static 'img/plus.png' %}" alt="Your Image" id="plus">
+        </a>
+    </div>
     
     {% for activity_set in activity_sets %}
         <div class="activity-set">
@@ -37,4 +47,5 @@
         
     {% endfor %}
 </div>
+
 {% endblock %}
