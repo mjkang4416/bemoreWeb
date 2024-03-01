@@ -6,22 +6,29 @@
     <!--js-->
     <!-- 마이 페이지 수정 -->
     <div id="page-name"><h1>my page</h1></div>
-    <form action="{% url 'mypage:mypage_edit' username=request.user.username %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <!-- 프로필 사진 -->
-        <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} id="profile-photo" alt=""></div>
-        <input type="file" name="profile_photo" value="{{ profile.profile_photo }}" id="select-photo">
-        <!-- 유저 정보 -->
-        <div id="userInfo">
-            <h2> 
-                {% if request.user.is_authenticated %}
-                {{ request.user.first_name }}{{ request.user.last_name }}<br>
-                {% endif %}
-                전공: <input type="text" name="major" value="{{profile.major}}"><br>
-                깃허브: <input type="url" name="github" value="{{profile.github}}"><br>
-                티스토리: <input type="url" name="tistory" value="{{profile.tistory}}"><br>
-            </h2>
-        </div>
-        <input type="submit" value="save" class="btn-edit">
-    </form>
+    <div class="container-info">
+        <form action="{% url 'mypage:mypage_edit' username=request.user.username %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="info">
+                <!-- 프로필 사진 -->
+                <div id="photo">
+                    <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} id="profile-photo" alt=""></div>
+                    <div><input type="file" name="profile_photo" value="{{ profile.profile_photo }}" id="select-photo"></div>
+                </div>
+                <!-- 유저 정보 -->
+                <div id="userInfo">
+                    <h2> 
+                        {% if request.user.is_authenticated %}
+                        <div>{{ request.user.first_name }}{{ request.user.last_name }}</div>
+                        {% endif %}
+                        <div>전공: <input type="text" name="major" value="{{profile.major}}"></div>
+                        <div>깃허브: <input type="url" name="github" value="{{profile.github}}"></div>
+                        <div>티스토리: <input type="url" name="tistory" value="{{profile.tistory}}"></div>
+                    </h2>
+                    <!-- 저장 버튼 -->
+                    <div><input type="submit" value="save" class="btn-edit"></div>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}

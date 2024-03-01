@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/media_act.css'%}">
+    <link rel="stylesheet" href="{% static 'css/people.css'%}">
+    <!--js-->
+    <script src="{% static 'js/showProfile.js' %}"></script>
+    <script src="{% static 'js/addPerson.js' %}"></script>
+    <!--people 화면-->
+    <div id="page-name"><h1>people</h1></div>
+
+    <div class="containe">
+      
+      {% for profile in items %}
+      
+      <!--프로필사진, 이름, 깃허브 링크 가져옴-->
+      <div class="person  {% if forloop.counter|divisibleby:"2" %}even{% else %}odd{% endif %}">
+      <div id="photo">
+        <div><img src={% if profile.profile_photo %}"{{ profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} class="no-edit" id="profile-photo" alt=""></div>
+      </div>
+      <div id="userInfo">
+        <div>{{ profile.user.first_name }}{{ profile.user.last_name }}</div>
+        <div><a href="{{ profile.github }}"><i id="git-id" class="fa-brands fa-github"></i></a></div>
+      </div>
+    </div>
+      {% endfor %} 
+
+    </div>
+    
+{% endblock %}

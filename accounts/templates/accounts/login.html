@@ -14,8 +14,9 @@
 <div class="container my-3">
     <form method="post" class="post-form" action="{% url 'accounts:login' %}">
         {% csrf_token %}
-        {% include "form_errors.html" %} 
+       
         <div class="login-form">
+        {% include "form_errors.html" %} 
         <div class="form-group">
             <label for="username">사용자ID</label>
             <input type="text" class="form-control" name="username" id="username"
@@ -26,7 +27,7 @@
             <input type="password" class="form-control" name="password" id="password"
                    value="{{ form.password.value|default_if_none:'' }}"> 
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
+        <button type="submit" class="btn btn-primary ">로그인</button>
         </div>
     </div>
     </form>
